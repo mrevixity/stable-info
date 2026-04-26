@@ -1,21 +1,17 @@
-# Next.js template
+# Stable SMP Info Server
 
-This is a Next.js template with shadcn/ui.
+Next.js site for Stable SMP with:
+- IGN login gate
+- server info and rules
+- market board with Minecraft item icons and pagination
+- optional Discord login-event logging (with user consent)
 
-## Adding components
+## Environment Variables
 
-To add components to your app, run the following command:
+Create a `.env.local` file in the project root:
 
 ```bash
-npx shadcn@latest add button
+DISCORD_WEBHOOK_URL=your_discord_webhook_url_here
 ```
 
-This will place the ui components in the `components` directory.
-
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
-```
+Without this variable, consented login events will not be delivered.
