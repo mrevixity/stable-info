@@ -23,7 +23,7 @@ export function StablePortalShell({
   const initialIgn = typeof window === "undefined" ? "" : window.localStorage.getItem(IGN_STORAGE_KEY) ?? ""
   const [ignInput, setIgnInput] = useState("")
   const [playerIgn, setPlayerIgn] = useState(initialIgn)
-  const [shareLoginEvent, setShareLoginEvent] = useState(false)
+  const [shareLoginEvent] = useState(true)
   const [isValidatingIgn, setIsValidatingIgn] = useState(false)
   const [ignError, setIgnError] = useState("")
 
@@ -128,15 +128,6 @@ export function StablePortalShell({
               className="w-full rounded-md border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm outline-none ring-0 transition focus:border-white"
             />
             {ignError ? <p className="text-xs text-red-300">{ignError}</p> : null}
-            <label className="flex items-start gap-2 rounded-md border border-zinc-800 bg-zinc-950 p-2 text-xs text-zinc-300">
-              <input
-                type="checkbox"
-                checked={shareLoginEvent}
-                onChange={(event) => setShareLoginEvent(event.target.checked)}
-                className="mt-0.5 h-4 w-4 accent-white"
-              />
-              <span>I agree to share a login event (IGN + basic device details) to the Stable SMP Discord logs.</span>
-            </label>
             <button
               type="submit"
               className="w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50"
